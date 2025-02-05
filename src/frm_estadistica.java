@@ -1,3 +1,6 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.*;
 
 public class frm_estadistica extends JFrame {
@@ -25,7 +28,7 @@ public class frm_estadistica extends JFrame {
         getContentPane().add(txtDato);
 
         JTextField txtDesviacion=new JTextField("");
-        txtDesviacion.setBounds(250, 200, 100, 25);
+        txtDesviacion.setBounds(180, 190, 100, 25);
         getContentPane().add(txtDesviacion);
         
         //Botones
@@ -38,10 +41,34 @@ public class frm_estadistica extends JFrame {
         getContentPane().add(btnQuitar);
 
         JButton btnDesviacion=new JButton("Desviacion");
-        btnDesviacion.setBounds(140, 200, 100, 25);
+        btnDesviacion.setBounds(70, 190, 100, 25);
         getContentPane().add(btnDesviacion);
-
         
+        //Lista
+        JList lstMuestra=new JList();
+        lstMuestra.setBounds(300,40,110,180);
+        getContentPane().add(lstMuestra);
 
+
+        //evntos de la GUI
+        btnAgregar.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent ae){
+                agregarDato();
+            }
+        });
+
+        btnQuitar.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent ae){
+                quitarDato();
+            }
+        });
+    }
+
+    private void agregarDato(){
+        JOptionPane.showMessageDialog(null, "Hizo clic en AGREGAR");
+    }
+
+    private void quitarDato(){
+        JOptionPane.showMessageDialog(null, "Hizo clic en QUITAR");
     }
 }
